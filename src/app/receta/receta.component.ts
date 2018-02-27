@@ -16,6 +16,7 @@ export class RecetaComponent implements OnInit {
   isGlutenFree: boolean;
   cocinero: string;
   ingredientes: string[];
+  show: boolean;
 
   constructor() {
     console.log('RecetaComponent constructor');
@@ -26,6 +27,7 @@ export class RecetaComponent implements OnInit {
     this.isGlutenFree = true; 
     this.cocinero = "Karlos Arguiñano";
     this.ingredientes = ['Calamares', 'Pan', 'Salsa Ali Oli', 'Limón'];
+    this.show = false;
   }
 
   ngOnInit() {
@@ -35,6 +37,10 @@ export class RecetaComponent implements OnInit {
   sumarLike(){
     console.log('Click sumarLike');
     this.likes++;
+  }
+
+  mostrarIngredientes(){
+    console.log('Click mostrarIngredientes');
   }
 
 }

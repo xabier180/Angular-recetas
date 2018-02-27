@@ -14,8 +14,8 @@
           </p>
 
           <section class="ingredientes">
-            <h4>Ingredientes</h4>
-            <ol>
+            <h4>Ingredientes <span class="glyphicon glyphicon-menu-down" aria-hidden="true"(click)="mostrarIngredientes()" ></span></h4>
+            <ol *ngIf="show">
               <li *ngFor="let ingrediente of ingredientes">
                 {{ingrediente}}
               </li>
