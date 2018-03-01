@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import {Receta} from '../model/receta';
+
 @Component({
   selector: 'app-receta',
   templateUrl: './receta.component.html',
@@ -9,25 +11,24 @@ export class RecetaComponent implements OnInit {
 
   //atributos
 
-  nombre: string;
-  descripcion: string;
-  likes: number;
-  foto: string;
-  isGlutenFree: boolean;
-  cocinero: string;
-  ingredientes: string[];
+
+  receta: Receta;
   show: boolean;
+  glyphicon: string;
 
   constructor() {
     console.log('RecetaComponent constructor');
-    this.nombre = 'Bokata de calamares';
-    this.descripcion = 'Bocadillo típico madrileño de calamares a la romana con mayonesa y un buen chorro de limón.'
-    this.likes = 334;
-    this.foto = 'https://www.hogarmania.com/archivos/201411/bocadillo-calamares-xl-668x400x80xX.jpg';
-    this.isGlutenFree = true; 
-    this.cocinero = "Karlos Arguiñano";
-    this.ingredientes = ['Calamares', 'Pan', 'Salsa Ali Oli', 'Limón'];
+
+    this.receta = new Receta('Marmitako', undefined);
+    this.receta.addIngrediente('patatas');
+    this.receta.addIngrediente('bonito');
+    this.receta.addIngrediente('pimiento verde');
+    this.receta.addIngrediente('aceite');
+    this.receta.addIngrediente('sal');
+
+
     this.show = false;
+    this.glyphicon = 'glyphicon-menu-down';
   }
 
   ngOnInit() {
@@ -36,11 +37,12 @@ export class RecetaComponent implements OnInit {
 
   sumarLike(){
     console.log('Click sumarLike');
-    this.likes++;
+    this.receta.likes++;
   }
 
-  mostrarIngredientes(){
-    console.log('Click mostrarIngredientes');
+  showIngredientes(){
+    console.log('Click showIngredientes');
+    this.show = !this.show;
+    this.glyphicon = (this.show)?'glyphicon-menu-up':'glyphicon-menu-down';
   }
-
 }
