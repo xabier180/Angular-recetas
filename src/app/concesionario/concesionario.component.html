@@ -1,0 +1,38 @@
+<p>Ejemplo de un componente padre <b>ConcesionarioComponent</b> e hijo <b>CocheComponent</b>. Aprender a pasar parámetros de uno a otro con @input y con @output.</p>
+
+
+<nav aria-label="Catalogo de coches">
+  <ul class="pagination">
+    <li *ngFor="let coche of stock" [class.active]="coche  == coche1">
+      <a>{{ coche.marca }} {{ coche.modelo }}</a>  
+    </li>
+  </ul>
+</nav>
+
+<div class="row">
+<div class="panel panel-default col-sm-2 col-md-2">
+    <div class="panel-heading">
+        <h3 class="panel-title">Stock</h3>
+      </div>
+    <div class="panel-body">
+      <div *ngFor="let cocheIteracion of stock">
+        <!-- Llamada componente hijo -->
+        <app-listado [stockParametro]="stock" (eventoEmitir)="recibirCoche($event)" ></app-listado>
+      </div>
+    </div>
+  </div>
+
+<div class="panel panel-default col-sm-10 col-md-10">
+  <div class="panel-heading">
+    <h3 class="panel-title">Comparador</h3>
+  </div>
+  <div class="panel-body">
+    <div >
+        <!-- Llamada componente hijo -->
+      <app-coche [cocheParametro]="coche1"></app-coche>
+      <app-coche [cocheParametro]="coche2"></app-coche>
+    </div>
+  </div>
+</div>
+
+</div>
