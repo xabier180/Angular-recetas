@@ -1,0 +1,35 @@
+<p>Ejemplo de un Componente Padre <b>RecetarioComponent</b> e Hijo <b>RecetaComponent</b>. Aprender a pasar parametros de una a otro @input @output</p>
+
+<div class="row">
+
+  <div class="col-md-2">
+      <div class="panel panel-default">
+              <div class="panel-heading">
+                  <h3 class="panel-title">Recetas</h3>
+              </div>
+              <div class="panel-body panel-list-coches">
+                 
+                  <!-- llamda componente Hijo -->
+                  <app-listado [recetarioParametro]="recetas_disponibles"
+                               (eventoEmitir)="recibirReceta($event)"></app-listado>
+                 
+              </div>
+      </div>
+  </div>   
+
+  <div class="col-md-10">
+      <div class="panel panel-default">
+          <div class="panel-heading">
+              <h3 class="panel-title">Detalle de las recetas</h3>
+          </div>
+          <div class="panel-body">
+              
+              <!-- llamda componente Hijo -->
+              <app-coche></app-coche>
+             
+              
+          </div>
+      </div>
+  </div>    
+
+</div>
