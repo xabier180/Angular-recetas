@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output,EventEmitter } from '@angular/core';
 import { RecetaDetalle } from '../model/recetaDetalle';
+import { RecetaDetalleService } from '../providers/receta-detalle.service';
 
 @Component({
   selector: 'app-recetario',
@@ -8,27 +9,31 @@ import { RecetaDetalle } from '../model/recetaDetalle';
 })
 export class RecetarioComponent implements OnInit {
 
+ 
   recetas_disponibles : Array<RecetaDetalle>;  //Array casteado a RecetaDetalle
+  recetaSeleccionada : RecetaDetalle;
 
-  constructor() { 
+  constructor(public recetaDetalleService:RecetaDetalleService) { 
 
     console.log('RecetarioComponent constructor');     
 
+    this.recetaSeleccionada = new RecetaDetalle('recetaSeleccionada');
     this.recetas_disponibles = new Array<RecetaDetalle>();
 
   }
 
   ngOnInit() {
 
-    console.log('ConcesionarioComponent ngOnInit');    
-    this.recetas_disponibles = this.cochesService.getAll();   
+    console.log('recetarioComponent ngOnInit');    
+    this.recetas_disponibles = this.recetaDetalleService.getAll(); 
+    this.recetaSeleccionada = this.recetas_disponibles[0] || new RecetaDetalle('Anonimo');  
 
   }
 
-  recibirCoche(event){
-    console.log('ConcesionarioComponent: recibirCoche %o %i', event.coche , event.otroParametro);               
-    this.coche2 = this.coche1;
-    this.coche1 = event.coche;   
+  recibirRecetaDetalle(recetaSeleccionada:RecetaDetalle){
+    console.log('RecetarioComponent, recibirRecetaDetalle');               
+    
+   // this.recetaSeleccionada = receta1;   
   }
 
   

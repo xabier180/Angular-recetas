@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { RecetaDetalle } from '../../model/recetaDetalle';
 
 @Component({
   selector: 'app-receta-detalle',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RecetaDetalleComponent implements OnInit {
 
-  constructor() { }
+  //Parametro de Entrada desde el Componete Padre al Hijo
+  @Input('receta1') receta1 : RecetaDetalle; // receta para mostrar
+
+  constructor() {
+    console.log('RecetaDetalleComponent constructor');
+   }
 
   ngOnInit() {
+    console.log('RecetaDetalleComponent ngOnInit');
   }
 
 }

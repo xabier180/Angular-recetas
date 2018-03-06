@@ -7,6 +7,8 @@ import { AppRouter } from './app.route';
 
 //Services
 import { CochesService } from './providers/coches.service';
+import { RecetaDetalleService } from './providers/receta-detalle.service';
+
 
 //Pipes
 import { RoundPipe } from './pipes/round.pipe';
@@ -24,6 +26,7 @@ import { CocheComponent } from './concesionario/coche/coche.component';
 import { ListadoComponent } from './concesionario/listado/listado.component';
 import { RecetarioComponent } from './recetario/recetario.component';
 import { RecetaDetalleComponent } from './Recetario/receta-detalle/receta-detalle.component';
+import { ListadoRecetarioComponent } from './recetario/lista/lista.component';
 
 
 
@@ -42,7 +45,8 @@ import { RecetaDetalleComponent } from './Recetario/receta-detalle/receta-detall
     RoundPipe,
     FilterPipe,
     RecetarioComponent,
-    RecetaDetalleComponent
+    RecetaDetalleComponent,
+    ListadoRecetarioComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +54,8 @@ import { RecetaDetalleComponent } from './Recetario/receta-detalle/receta-detall
     FormsModule
   ],
   providers: [
-    CochesService
+    CochesService,
+    RecetaDetalleService
   ],
   bootstrap: [AppComponent]
 })

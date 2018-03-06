@@ -1,0 +1,8 @@
+<input [(ngModel)]="searchText" placeholder="busca receta">
+
+
+<ul class="list-group">
+  <li class="list-group-item" *ngFor="let receta of recetas_disponibles | filter : searchText">
+      <a (click)="seleccionarReceta($event, receta)">{{receta.nombre}}</a>
+  </li>    
+</ul>

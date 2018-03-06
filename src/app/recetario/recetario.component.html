@@ -2,30 +2,30 @@
 
 <div class="row">
 
-  <div class="col-md-2">
+  <div class="col-md-3">
       <div class="panel panel-default">
               <div class="panel-heading">
                   <h3 class="panel-title">Recetas</h3>
               </div>
-              <div class="panel-body panel-list-coches">
+              <div class="panel-body panel-list-recetas">
                  
-                  <!-- llamda componente Hijo -->
-                  <app-listado [recetarioParametro]="recetas_disponibles"
-                               (eventoEmitir)="recibirReceta($event)"></app-listado>
-                 
+                  <!-- llamada componente Hijo -->
+                  <app-lista-recetario [recetarioParametro]="recetas_disponibles"
+                               (eventoEmitirReceta)="recibirRecetaDetalle($event)"></app-lista-recetario>
+                  
               </div>
       </div>
   </div>   
 
-  <div class="col-md-10">
+  <div class="col-md-9">
       <div class="panel panel-default">
           <div class="panel-heading">
               <h3 class="panel-title">Detalle de las recetas</h3>
           </div>
           <div class="panel-body">
               
-              <!-- llamda componente Hijo -->
-              <app-coche></app-coche>
+              <!-- llamada componente Hijo -->
+              <app-receta-detalle [receta1]="recetaSeleccionada"></app-receta-detalle>
              
               
           </div>
