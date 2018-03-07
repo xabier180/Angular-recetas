@@ -6,6 +6,8 @@ import { element } from 'protractor';
 @Injectable()
 export class RecetaDetalleService {
 
+  recetas : RecetaDetalle[];
+
   constructor() { 
     console.log('RecetaDetalleService constructor');
   }
@@ -15,7 +17,7 @@ export class RecetaDetalleService {
   */
  getAll():RecetaDetalle[]{
   console.log('RecetaDetalleService getAll');
-  let recetas:RecetaDetalle[] = [];
+  this.recetas = [];
   let receta;
   
   let jsonData = JSON.parse(MOCKS_RECETADETALLE.recetas_disponibles);
@@ -24,18 +26,27 @@ export class RecetaDetalleService {
     
       receta = new RecetaDetalle( 
                         element.nombre, 
-                        element.cocinero
+                        element.cocinero,
+                        element.foto,
+                        element.descripcion
                         );
       receta.foto =     element.foto; 
       receta.likes =    element.likes;
       receta.descripcion = element.descripcion;
-      recetas.push(receta);
+      this.recetas.push(receta);
 
   });
 
-  return recetas;
+  return this.recetas;
 }
 
+/**
+ * Crear Nueva Receta
+ * @param receta : Receta Nueva
+ */
 
-
+crear( receta : RecetaDetalle):void{
+  this.recetas.unshift(receta);
+}
+  
 }

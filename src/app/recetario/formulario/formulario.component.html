@@ -1,0 +1,83 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-link" data-toggle="modal" data-target="#modalReceta">
+  Cocinar nueva receta
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="modalReceta" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Nueva receta</h4>
+      </div>
+      <div class="modal-body">
+
+      <!--  <p>Valores: {{ formulario.value | json}}</p>
+        <p>Estado: {{ formulario.status | json}}</p> 
+        <hr> -->
+        <form [formGroup]="formulario" (ngSubmit)="sumitar($event)" novalidate>
+
+          <div class="row">
+
+              <div class="col-md-6 col-sm-6">
+
+          <div class="form-group form-inline">
+            <label for="nombre">Nombre:</label>
+          <input formControlName="nombre" placeholder="Nombre">
+          <p *ngIf="formulario.controls.nombre.invalid  && formulario.controls.nombre.touched" class="text-danger">*Obligatorio, mínimo 2 letras</p>
+        </div>
+
+        <div class="form-group form-inline">
+            <label for="cocinero">Cocinero:</label>
+          <input formControlName="cocinero" placeholder="Cocinero">
+        </div>
+
+        <div class="form-group form-inline">
+            <label for="gluten">Gluten:</label>
+            <div class="radio-inline">
+                <label><input type="radio" name="optradio">Si</label>
+              </div>
+              <div class="radio-inline">
+                <label><input type="radio" name="optradio">No</label>
+              </div>
+        </div>
+
+      </div>
+      <div class="col-md-6 col-sm-6">
+
+        <div class="form-group form-inline">
+          <img src="\assets\imgs\receta_default.jpg" alt="imagen">
+        </div>
+
+        <div class="form-group form-inline">
+            <label for="foto">Foto:</label>
+          <input formControlName="foto">
+        </div>
+
+      </div>
+
+      
+      </div>
+      <!-- Cierro div.row -->
+
+      <div class="row" >
+
+      <div class="form-group form-inline">
+          <label for="descripcion">Descripcion:</label>
+        <textarea class="form-control" cols="75" formControlName="descripcion"></textarea>
+      </div>
+    </div>
+
+  
+
+          <input type="submit" [disabled]="!formulario.valid" class="btn btn-success btn-block" value="Crear">
+
+
+        </form>
+
+
+      </div>
+    </div>
+  </div>
+</div>

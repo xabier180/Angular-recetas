@@ -17,7 +17,7 @@ export class RecetarioComponent implements OnInit {
 
     console.log('RecetarioComponent constructor');     
 
-    this.recetaSeleccionada = new RecetaDetalle('recetaSeleccionada');
+    this.recetaSeleccionada = new RecetaDetalle('recetaSeleccionada', 'cocinero', 'foto', 'descripcion');
     this.recetas_disponibles = new Array<RecetaDetalle>();
 
   }
@@ -26,14 +26,14 @@ export class RecetarioComponent implements OnInit {
 
     console.log('recetarioComponent ngOnInit');    
     this.recetas_disponibles = this.recetaDetalleService.getAll(); 
-    this.recetaSeleccionada = this.recetas_disponibles[0] || new RecetaDetalle('Anonimo');  
+    this.recetaSeleccionada = this.recetas_disponibles[0] || new RecetaDetalle('Anonimo', '', '', '');  
 
   }
 
-  recibirRecetaDetalle(recetaSeleccionada:RecetaDetalle){
-    console.log('RecetarioComponent, recibirRecetaDetalle');               
+  recibirRecetaDetalle(event){
+    console.log('RecetarioComponent recibirRecetaDetalle %o', event.receta);               
     
-   // this.recetaSeleccionada = receta1;   
+    this.recetaSeleccionada = event.receta;   
   }
 
   

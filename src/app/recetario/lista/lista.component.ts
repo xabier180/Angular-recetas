@@ -31,7 +31,7 @@ export class ListadoRecetarioComponent implements OnInit {
     this.eventoEmitirReceta.emit(  //event con 2 parametros
                               {
                                  "receta": receta ,
-                                 "otroParametro" : 2018
+                                
                               }
                           );
 
