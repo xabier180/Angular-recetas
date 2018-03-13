@@ -34,6 +34,7 @@ import { RecetaDetalleComponent } from './Recetario/receta-detalle/receta-detall
 import { ListadoRecetarioComponent } from './recetario/lista/lista.component';
 import { FormularioComponent } from './recetario/formulario/formulario.component';
 import { TodosComponent } from './todos/todos.component';
+import { FormBasicoComponent } from './form-basico/form-basico.component';
 
 
 
@@ -56,7 +57,8 @@ import { TodosComponent } from './todos/todos.component';
     RecetaDetalleComponent,
     ListadoRecetarioComponent,
     FormularioComponent,
-    TodosComponent
+    TodosComponent,
+    FormBasicoComponent
   ],
   imports: [
     BrowserModule,
